@@ -24,11 +24,17 @@ Route::get('/logs', [LearningController::class, 'Loginpageindex']);
 //HomePage by me Profile's Dashboard1
 Route::get('/myhome', [LearningController::class, 'Homepageindex']);
 
-//LogInPage of Adminlte 3
-Route::get('/login', [LearningController::class, 'LoginPageIndexA3']);
+//Index SB 
+Route::get('/myhome2', [LearningController::class, 'index']);
 
-// //My extend HomePage1 Profile's Dashboard of Adminlte
-// Route::get('/adminhome', [LearningController::class, 'Homepage2index']);
-
-//RegisterPage Adminlte3
+//RegisterPage
 Route::get('/register', [LearningController::class, 'Homepage3index']);
+
+//LoginPage
+Route::get('/log1', [LearningController::class, 'LoginPageindex1']);
+
+//Tables
+Route::get('/tab', [LearningController::class, 'TableIndex']);
+
+//Charts
+Route::get('/chart', [LearningController::class, 'ChartsIndex']);

@@ -38,8 +38,29 @@ class LearningController extends Controller
 
     public function Homepage3index () {
 
-        $home2 = Learning::all();
-        return view ('vendor\adminlte\auth\register', compact ('home2')); //filename, var Not workuing
+        $reg = Learning::all();
+        return view ('register', compact ('reg')); //filename, var Not workuing
+
+    }
+
+    public function LoginPageindex1 () {
+
+        $loglog = Learning::all();
+        return view ('loginpage1', compact ('loglog')); //filename, var Not workuing
+
+    }
+
+    public function TableIndex () {
+
+        $tab = Learning::all();
+        return view ('table', compact ('tab'));
+
+    }
+
+    public function ChartsIndex () {
+
+        $char = Learning::all();
+        return view ('charts', compact ('char'));
 
     }
 }
