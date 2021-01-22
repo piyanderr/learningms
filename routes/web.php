@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningController;
+use App\Models\Learning;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,9 @@ Route::get('/tab', [LearningController::class, 'TableIndex']);
 
 //Charts
 Route::get('/chart', [LearningController::class, 'ChartsIndex']);
+
+//Password
+Route::get('/password', [LearningController::class, 'PassIndex']);
+
+//layout-static homepage
+Route::get('/layout', [LearningController::class, 'LayoutIndex']);

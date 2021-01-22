@@ -13,14 +13,6 @@ class LearningController extends Controller
         return view ('loginpage', compact ('login')); //filename, var
 
     }
-
-    // public function LoginPageIndexA3 () {
-
-    //     $login1 = Learning::all();
-    //     return view ('vendor\adminlte\auth\login', compact ('login1')); //filename, var
-
-    // }
-
     
     public function Homepageindex () {
 
@@ -61,6 +53,20 @@ class LearningController extends Controller
 
         $char = Learning::all();
         return view ('charts', compact ('char'));
+
+    }
+
+    public function PassIndex () {
+
+        $pass = Learning::all();
+        return view ('password', compact ('pass'));
+
+    }
+
+    public function LayoutIndex () {
+    
+        $out = Learning::all();
+        return view ('layout-static', compact ('out'));
 
     }
 }
