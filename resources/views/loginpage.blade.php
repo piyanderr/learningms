@@ -24,7 +24,7 @@
         <div class="container-lg-12">
             <div class="text-center">
 
-            <!-- <img src="trylogo.jpg"></img> -->
+            <img src="trylogo.jpg"></img>
 
                 <h1>O N L I N E  L E A R N I N G  P R O G R A M</h1>
                 <p>BENLIW ELEMENTARY SCHOOL</p> 
