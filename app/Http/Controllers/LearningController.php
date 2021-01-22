@@ -32,7 +32,7 @@ class LearningController extends Controller
     public function Homepage2index () {
 
         $home = Learning::all();
-        return view ('homepage2', compact ('home')); //filename, var
+        return view ('homepage3', compact ('home')); //filename, var
 
     }
 

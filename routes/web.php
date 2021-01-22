@@ -19,19 +19,19 @@ Route::get('/', function () {
 });
 
 //LogInPage by me
-Route::get('/logs', [LearningController::class, 'Loginpageindex']);
+Route::get('/logsin', [LearningController::class, 'Loginpageindex']);
 
-//HomePage by me Profile's Dashboard1
+//My Dashboard dark
 Route::get('/myhome', [LearningController::class, 'Homepageindex']);
 
-//Index SB 
-Route::get('/myhome2', [LearningController::class, 'index']);
+//My Dashboard light
+Route::get('/myhome2', [LearningController::class, 'Homepage2index']);
+
+//LoginPage
+Route::get('/login', [LearningController::class, 'LoginPageindex1']);
 
 //RegisterPage
 Route::get('/register', [LearningController::class, 'Homepage3index']);
-
-//LoginPage
-Route::get('/log1', [LearningController::class, 'LoginPageindex1']);
 
 //Tables
 Route::get('/tab', [LearningController::class, 'TableIndex']);
