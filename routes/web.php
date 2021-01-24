@@ -22,26 +22,26 @@ Route::get('/', function () {
 //LogInPage by me
 Route::get('/logsin', [LearningController::class, 'Loginpageindex']);
 
+//LoginPage
+Route::get('/login', [LearningController::class, 'LoginPageindex1']);
+
+//Password
+Route::get('/password', [LearningController::class, 'PassIndex']);
+
 //My Dashboard dark
 Route::get('/myhome', [LearningController::class, 'Homepageindex']);
 
 //My Dashboard light
 Route::get('/myhome2', [LearningController::class, 'Homepage2index']);
 
-//LoginPage
-Route::get('/login', [LearningController::class, 'LoginPageindex1']);
+//layout-static homepage
+Route::get('/layout', [LearningController::class, 'LayoutIndex']);
 
 //RegisterPage
-Route::get('/register', [LearningController::class, 'Homepage3index']);
+Route::get('/register', [LearningController::class, 'RegisterIndex']);
 
 //Tables
 Route::get('/tab', [LearningController::class, 'TableIndex']);
 
 //Charts
 Route::get('/chart', [LearningController::class, 'ChartsIndex']);
-
-//Password
-Route::get('/password', [LearningController::class, 'PassIndex']);
-
-//layout-static homepage
-Route::get('/layout', [LearningController::class, 'LayoutIndex']);

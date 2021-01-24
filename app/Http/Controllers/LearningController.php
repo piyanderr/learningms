@@ -28,7 +28,7 @@ class LearningController extends Controller
 
     }
 
-    public function Homepage3index () {
+    public function RegisterIndex () {
 
         $reg = Learning::all();
         return view ('register', compact ('reg')); //filename, var Not workuing
