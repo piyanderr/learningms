@@ -20,44 +20,94 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="{{ route('createuser') }}" method="POST">
+                                        @csrf
+
+                                            <div class="results">
+                                                @if (session('Success'))
+                                                        <div class="alert alert-success">
+                                                            {{ session('Success') }}
+                                                        </div>
+                                                @endif
+
+                                                <!-- @if($errors->any())
+                                                        <div class="form-group">
+                                                            @foreach($errors->all() as $error)
+                                                                <div class="alert alert-danger"> 
+                                                                    {{ $error }}
+                                                                    <br>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                @endif
+
+                                            </div> -->
+
+
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
+                                                        <input class="form-control py-4" id="inputFirstName" name="firstname" type="text" placeholder="Enter first name" value="{{ old('firstname') }}" />
+                                                        <!-- <span class="text-danger"> @error ('firstname') {{ $message }} @enderror</span> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
+                                                        <input class="form-control py-4" id="inputLastName" name="lastname" type="text" placeholder="Enter last name" value="{{ old('lastname') }}"/>
+                                                        <!-- <span class="text-danger"> @error ('lastname') {{ $message }} @enderror</span> -->
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" value="{{ old('email') }}"/>
+                                                <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
+
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <input class="form-control py-4" id="inputPassword" name="password" type="password" placeholder="Enter password" />
+                                                        <!-- <span class="text-danger"> @error ('password') {{ $message }} @enderror</span> -->
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control py-4" id="inputConfirmPassword" name="password_confirmation" type="password" placeholder="Confirm password" />
+                                                        <!-- <span class="text-danger"> @error ('password') {{ $message }} @enderror</span> -->
+
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+
+                                            <div class="form-group mt-4 mb-0">
+                                                <button type="sumbit" class="btn btn-primary btn-block">Create Account</button>
+                                            </div>
+
+                                            <br>
+                                            
+                                            @if($errors->any())
+                                                        <div class="form-group">
+                                                            @foreach($errors->all() as $error)
+                                                                <div class="alert alert-danger"> 
+                                                                    {{ $error }}
+                                                                    <br>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                @endif
+
+                                            </div>
+
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="login">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="login">Already have an account? Go to login</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -65,6 +115,7 @@
                     </div>
                 </main>
             </div>
+            
             <div id="layoutAuthentication_footer">
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

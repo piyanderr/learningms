@@ -75,7 +75,7 @@ body {
   color: #212529;
   text-align: left;
   background: rgb(7,42,68);
-  background: linear-gradient(355deg, rgba(7,42,68,1) 28%, rgba(10,65,103,1) 66%, rgba(14,79,126,1) 92%);
+  background: linear-gradient(355deg, rgba(7,42,68,1) 28%, rgba(10,65,103,1) 66%, rgba(14,79,126,1) 92%) fixed;
 
 } 
 
@@ -4338,8 +4338,9 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(73, 61, 61, 0.125);
   border-radius: 0.25rem;
+  margin-bottom: 10%;
 }
 .card > hr {
   margin-right: 0;
