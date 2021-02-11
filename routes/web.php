@@ -37,6 +37,8 @@ Route::get('/password', [LearningController::class, 'PassIndex']);
 //Profile
 Route::get('/profile', [LearningController::class, 'UsersProfile']);
 
+//LogOut Page
+Route::get('/logout', [LearningController::class, 'LogOutPageIndex']);
 
 // //My Dashboard dark
 // Route::get('/myhome', [LearningController::class, 'Homepageindex']);

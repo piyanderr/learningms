@@ -100,52 +100,61 @@ class LearningController extends Controller
         if(session()->has('LoggedUser')){
             $user = User::where('id', "=", session('LoggedUser'))->first();
             $data = [
-                'LoggedUSerInfo' => $user
+                'LoggedUserInfo' => $user
             ];
         }
         return view ('admin.usersprofile', $data); //filename
 
     }
- 
-    public function Homepageindex () {
 
-        $home1 = Learning::all();
-        return view ('homepage', compact ('home1')); //filename, var
+    public function LogOutPageIndex() {
 
-    }
-
-    public function Homepage2index () {
-
-        $home = Learning::all();
-        return view ('homepage3', compact ('home')); //filename, var
+        if(session()->has('LoggedUser')) {
+            session()->pull('LoggedUser');
+            return redirect ('login');
+        }
 
     }
 
-    public function TableIndex () {
-
-        $tab = Learning::all();
-        return view ('table', compact ('tab'));
-
-    }
-
-    public function ChartsIndex () {
-
-        $char = Learning::all();
-        return view ('charts', compact ('char'));
-
-    }
-
-    public function PassIndex () {
+     public function PassIndex () {
 
         $pass = Learning::all();
         return view ('password', compact ('pass'));
 
     }
+ 
+    // public function Homepageindex () {
 
-    public function LayoutIndex () {
+    //     $home1 = Learning::all();
+    //     return view ('homepage', compact ('home1')); //filename, var
+
+    // }
+
+    // public function Homepage2index () {
+
+    //     $home = Learning::all();
+    //     return view ('homepage3', compact ('home')); //filename, var
+
+    // }
+
+    // public function TableIndex () {
+
+    //     $tab = Learning::all();
+    //     return view ('table', compact ('tab'));
+
+    // }
+
+    // public function ChartsIndex () {
+
+    //     $char = Learning::all();
+    //     return view ('charts', compact ('char'));
+
+    // }
+
+    // public function LayoutIndex () {
     
-        $out = Learning::all();
-        return view ('layout-static', compact ('out'));
+    //     $out = Learning::all();
+    //     return view ('layout-static', compact ('out'));
 
-    }
+    // }
 }
