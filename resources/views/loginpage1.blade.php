@@ -26,14 +26,19 @@
 
                                         <form action="{{ route('check.user') }}" method="POST">
                                         @csrf
+                                        <div class="class result">
+                                    
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" type="email" name="email" placeholder="Enter email address" value="{{ old('email') }}" />
+                                                <span class="text-danger"> @error('email') {{ $message }} @enderror </span>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                <input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter password" />
+                                                <span class="text-danger"> @error('password') {{ $message }} @enderror </span>
+
                                             </div>
 
                                             <div class="form-group">
@@ -45,8 +50,16 @@
 
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password">Forgot Password?</a>
-                                                <button class="btn btn-primary" type="submit" href="myhome">Login</button>
+                                                <button class="btn btn-primary" type="submit" href="">Login</button>
                                             </div>
+
+                                            <br>
+                                            @if(Session::get('fail'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('fail')}}
+                                            </div>
+                                            @endif
+                                        </div>
 
                                         </form>
 

@@ -34,6 +34,9 @@ Route::post('/checks', [LearningController::class, 'CheckIt'])->name('check.user
 //Password
 Route::get('/password', [LearningController::class, 'PassIndex']);
 
+//Profile
+Route::get('/profile', [LearningController::class, 'UsersProfile']);
+
 
 // //My Dashboard dark
 // Route::get('/myhome', [LearningController::class, 'Homepageindex']);

@@ -24,12 +24,35 @@ class LearningController extends Controller
 
     }
 
+    public function CheckIt (Request $request) {
 
-    public function CheckIt(Request $request) {
+        // return $request->Input();
 
-        return $request->Input();
+        $request->validate([
 
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:12'
+
+        ]);
+
+        //If the users filled form is validated, then process the log in
+
+        $user = User::where('email','=', $request->email)->first();
+        if($user){
+            if(Hash::check($request->password, $user->password)) {
+
+                //if the password matches the user will redirect or prceed to the users profile
+                $request->session()->put('LoggedUser', $user->id);
+                return redirect ('profile');
+            
+            }else {
+                return back()->with('fail','Your password is incorrect!');
+            }
+        }else{
+            return back()->with('fail', 'Account NOT found!');
+        }
     }
+
     
     public function RegisterIndex () {
 
@@ -46,7 +69,7 @@ class LearningController extends Controller
             'firstname' => 'required|min:3|max:30',
             'lastname' => 'required|min:3|max:30',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:5|confirmed',
+            'password' => 'required|min:5|max:12|confirmed',
             'password_confirmation' => 'required',
 
         ]);
@@ -68,10 +91,21 @@ class LearningController extends Controller
         }
         else {
 
-            return back()->with('Failed', 'There is problem in your registration. Registration went wrong..');
+            return back()->with('Failed', 'There is problem in your registration. Registration went wrong.');
         }
     }
 
+    public function UsersProfile () {
+
+        if(session()->has('LoggedUser')){
+            $user = User::where('id', "=", session('LoggedUser'))->first();
+            $data = [
+                'LoggedUSerInfo' => $user
+            ];
+        }
+        return view ('admin.usersprofile', $data); //filename
+
+    }
  
     public function Homepageindex () {
 
