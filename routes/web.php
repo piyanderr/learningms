@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\UserAuthController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,37 +20,37 @@ Route::get('/', function () {
 });
 
 //LogInPage by me
-Route::get('/logsin', [LearningController::class, 'Loginpageindex']);
+Route::get('/logsin', [UserAuthController::class, 'Loginpageindex']);
 
 //LoginPage
-Route::get('/login', [LearningController::class, 'LoginPageindex1']);
+Route::get('/login', [UserAuthController::class, 'LoginPageindex1']);
 
 //RegisterPage
-Route::get('/register', [LearningController::class, 'RegisterIndex']);
-Route::post('/create', [LearningController::class, 'UserCreate'])->name('createuser');
-Route::post('/checks', [LearningController::class, 'CheckIt'])->name('check.user');
+Route::get('/register', [UserAuthController::class, 'RegisterIndex']);
+Route::post('/create', [UserAuthController::class, 'UserCreate'])->name('createuser');
+Route::post('/checks', [UserAuthController::class, 'CheckIt'])->name('check.user');
 
 //Password
-Route::get('/password', [LearningController::class, 'PassIndex']);
+Route::get('/password', [UserAuthController::class, 'PassIndex']);
 
 //Profile
-Route::get('/profile', [LearningController::class, 'UsersProfile']);
+Route::get('/profile', [UserAuthController::class, 'UsersProfile']);
 
 //LogOut Page
-Route::get('/logout', [LearningController::class, 'LogOutPageIndex']);
+Route::get('/logout', [UserAuthController::class, 'LogOutPageIndex']);
 
-// //My Dashboard dark
-// Route::get('/myhome', [LearningController::class, 'Homepageindex']);
+//My Dashboard dark
+Route::get('/myhome', [LearningController::class, 'Homepageindex']);
 
-// //My Dashboard light
-// Route::get('/myhome2', [LearningController::class, 'Homepage2index']);
+//My Dashboard light
+Route::get('/myhome2', [LearningController::class, 'Homepage2index']);
 
-// //layout-static homepage
-// Route::get('/layout', [LearningController::class, 'LayoutIndex']);
+//layout-static homepage
+Route::get('/layout', [LearningController::class, 'LayoutIndex']);
 
-// //Tables
-// Route::get('/tab', [LearningController::class, 'TableIndex']);
+//Tables
+Route::get('/tab', [LearningController::class, 'TableIndex']);
 
-// //Charts
-// Route::get('/chart', [LearningController::class, 'ChartsIndex']);
+//Charts
+Route::get('/chart', [LearningController::class, 'ChartsIndex']);
 
