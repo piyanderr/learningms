@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\UserAuthController;
+// use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,14 +40,14 @@ Route::get('/profile', [UserAuthController::class, 'UsersProfile']);
 //LogOut Page
 Route::get('/logout', [UserAuthController::class, 'LogOutPageIndex']);
 
-//My Dashboard dark
-Route::get('/myhome', [LearningController::class, 'Homepageindex']);
+//My Dashboard 1
+Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
 
-//My Dashboard light
-Route::get('/myhome2', [LearningController::class, 'Homepage2index']);
+//My Dashboard 2
+Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
 
-//layout-static homepage
-Route::get('/layout', [LearningController::class, 'LayoutIndex']);
+//My Dashboard 3
+Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
 
 //Tables
 Route::get('/tab', [LearningController::class, 'TableIndex']);
@@ -54,3 +55,11 @@ Route::get('/tab', [LearningController::class, 'TableIndex']);
 //Charts
 Route::get('/chart', [LearningController::class, 'ChartsIndex']);
 
+//Auth?
+// Auth::route();
+
+//Route Middleware?
+// Route::get('/player', 'PlayerController@index')->name('player')->middleware('player');
+// Route::get('/dashboardA', [AdminController::class, 'AdminHomepageindex'])->middleware('adminmid');
+// Route::get('/dashboardB', [StudentController::class, 'StudentHomepageindex'])->middleware('studmid');
+// Route::get('/dashboardC', [TeacherController::class, 'TeacherHomepageindex'])->middleware('teachmid');

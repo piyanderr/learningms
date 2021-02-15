@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Page Title - SB Admin</title>
+        <title>Register Account</title>
         <link href="css/homepage.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -43,8 +43,22 @@
 
                                             </div> -->
 
+                                     
 
                                             <div class="form-row">
+
+                                                <!-- Role -->
+                                                <!-- <div class="form-group col-md-12">
+                                                    <label class="small mb-1" for="inputRole">Choose Role</label>
+                                                        <select id="inputState" name="role"  class="form-control" value="{{ old('role') }}">
+                                                            <option selected>You are...</option>
+                                                            <option>Admin</option>
+                                                            <option>Teacher</option>
+                                                            <option>Student</option>
+                                                        </select>
+                                                </div> -->
+
+                                                <!-- Firstname -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputFirstName">First Name</label>
@@ -52,6 +66,8 @@
                                                         <!-- <span class="text-danger"> @error ('firstname') {{ $message }} @enderror</span> -->
                                                     </div>
                                                 </div>
+                                                
+                                                <!-- Lastname -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputLastName">Last Name</label>
@@ -60,46 +76,40 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- Email -->
                                             <div class="form-row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputEmailAddress">Email</label>
                                                         <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" value="{{ old('email') }}"/>
                                                         <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
                                                     </div>
-                                                </div>  
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <br>
-                                                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                                        <label for="role1">Admin</label><br>
-                                                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                                        <label for="role2"> Student</label><br>
-                                                        <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
-                                                    </div>  
-                                                </div>
-
+                                                </div> 
                                             </div>
+                                            
+                                            <!-- Password -->
                                             <div class="form-row">
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Password</label>
                                                         <input class="form-control py-4" id="inputPassword" name="password" type="password" placeholder="Enter password" />
                                                         <!-- <span class="text-danger"> @error ('password') {{ $message }} @enderror</span> -->
-
                                                     </div>
                                                 </div>
+
+                                            <!-- ConfirmPassword -->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
                                                         <input class="form-control py-4" id="inputConfirmPassword" name="password_confirmation" type="password" placeholder="Confirm password" />
                                                         <!-- <span class="text-danger"> @error ('password') {{ $message }} @enderror</span> -->
-
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <!-- CreateButton -->
                                             <div class="form-group mt-4 mb-0">
                                                 <button type="sumbit" class="btn btn-primary btn-block">Create Account</button>
                                             </div>

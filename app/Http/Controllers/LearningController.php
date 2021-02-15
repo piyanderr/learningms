@@ -11,17 +11,24 @@ use Illuminate\Support\Facades\Hash;
 class LearningController extends Controller
 {
  
-    public function Homepageindex () {
+    public function StudentHomepageindex () {
 
-        $home1 = Learning::all();
-        return view ('homepage', compact ('home1')); //filename, var
+        $home2 = Learning::all();
+        return view ('users.studentdash', compact ('home2')); //filename, var
 
     }
 
-    public function Homepage2index () {
+    public function AdminHomepageindex () {
 
         $home = Learning::all();
-        return view ('homepage3', compact ('home')); //filename, var
+        return view ('admin.admindash', compact ('home')); //filename, var
+
+    }
+
+    public function TeacherHomepageindex () {
+    
+        $home2 = Learning::all();
+        return view ('users.teacherdash', compact ('home2'));
 
     }
 
@@ -39,10 +46,5 @@ class LearningController extends Controller
 
     }
 
-    public function LayoutIndex () {
-    
-        $out = Learning::all();
-        return view ('layout-static', compact ('out'));
 
-    }
 }

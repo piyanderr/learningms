@@ -14,14 +14,14 @@ class UserAuthController extends Controller
     public function Loginpageindex () {
 
         $login = Learning::all();
-        return view ('loginpage', compact ('login')); //filename, var
+        return view ('login.loginpage', compact ('login')); //filename, var
 
     }
     
     public function LoginPageindex1 () {
 
         $log = Learning::all();
-        return view ('loginpage1', compact ('log')); //filename, var Not workuing
+        return view ('login.loginpage1', compact ('log')); //filename, var Not workuing
 
     }
 
@@ -58,7 +58,7 @@ class UserAuthController extends Controller
     public function RegisterIndex () {
 
         $reg = Learning::all();
-        return view ('register', compact ('reg')); //filename, var Not workuing
+        return view ('login.register', compact ('reg')); //filename, var Not workuing
 
     }
 
@@ -70,7 +70,6 @@ class UserAuthController extends Controller
             'firstname' => 'required|min:3|max:30',
             'lastname' => 'required|min:3|max:30',
             'email' => 'required|email|unique:users',
-            'role' => 'required',
             'password' => 'required|min:5|max:12|confirmed',
             'password_confirmation' => 'required',
 
