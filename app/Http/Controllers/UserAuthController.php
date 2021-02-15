@@ -70,6 +70,7 @@ class UserAuthController extends Controller
             'firstname' => 'required|min:3|max:30',
             'lastname' => 'required|min:3|max:30',
             'email' => 'required|email|unique:users',
+            'role' => 'required',
             'password' => 'required|min:5|max:12|confirmed',
             'password_confirmation' => 'required',
 

@@ -60,10 +60,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" value="{{ old('email') }}"/>
-                                                <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                                        <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" value="{{ old('email') }}"/>
+                                                        <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
+                                                    </div>
+                                                </div>  
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <br>
+                                                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                                        <label for="role1">Admin</label><br>
+                                                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                                        <label for="role2"> Student</label><br>
+                                                        <!-- <span class="text-danger"> @error ('email') {{ $message }} @enderror</span> -->
+                                                    </div>  
+                                                </div>
 
                                             </div>
                                             <div class="form-row">
