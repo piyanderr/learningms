@@ -34,11 +34,20 @@ Route::post('/checks', [UserAuthController::class, 'CheckIt'])->name('check.user
 //Password
 Route::get('/password', [UserAuthController::class, 'PassIndex']);
 
-//Profile
-Route::get('/profile', [UserAuthController::class, 'UsersProfile']);
+//UserProfile
+Route::get('/profile', [UserAuthController::class, 'UsersProfile'])->middleware('isLogged');
 
 //LogOut Page
 Route::get('/logout', [UserAuthController::class, 'LogOutPageIndex']);
+
+
+
+
+
+
+
+
+
 
 //My Dashboard 1
 Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
@@ -50,10 +59,10 @@ Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
 Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
 
 //Tables
-Route::get('/tab', [LearningController::class, 'TableIndex']);
+// Route::get('/tab', [LearningController::class, 'TableIndex']);
 
 //Charts
-Route::get('/chart', [LearningController::class, 'ChartsIndex']);
+// Route::get('/chart', [LearningController::class, 'ChartsIndex']);
 
 //Auth?
 // Auth::route();
