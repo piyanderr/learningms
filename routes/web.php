@@ -24,10 +24,10 @@ Route::get('/', function () {
 Route::get('/logsin', [UserAuthController::class, 'Loginpageindex']);
 
 //LoginPage
-Route::get('/login', [UserAuthController::class, 'LoginPageindex1']);
+Route::get('/login', [UserAuthController::class, 'LoginPageindex1'])->middleware('isLoggedIn');
 
 //RegisterPage
-Route::get('/register', [UserAuthController::class, 'RegisterIndex']);
+Route::get('/register', [UserAuthController::class, 'RegisterIndex'])->middleware(('isLoggedIn'));
 Route::post('/create', [UserAuthController::class, 'UserCreate'])->name('createuser');
 Route::post('/checks', [UserAuthController::class, 'CheckIt'])->name('check.user');
 

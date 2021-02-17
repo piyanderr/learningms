@@ -27,6 +27,15 @@
                                         <form action="{{ route('check.user') }}" method="POST">
                                         @csrf
                                         <div class="class result">
+                                        
+                                            @if(Session::get('fail'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('fail')}}
+                                            </div>
+                                            @endif
+                                        </div>
+
+                                        <hr>
                                     
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
@@ -52,15 +61,6 @@
                                                 <a class="small" href="password">Forgot Password?</a>
                                                 <button class="btn btn-primary" type="submit" href="">Login</button>
                                             </div>
-
-                                            <br>
-                                            @if(Session::get('fail'))
-                                            <div class="alert alert-danger">
-                                                {{ Session::get('fail')}}
-                                            </div>
-                                            @endif
-                                        </div>
-
                                         </form>
 
                                     </div>

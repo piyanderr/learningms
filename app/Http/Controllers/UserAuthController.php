@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Learning;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class UserAuthController extends Controller
@@ -24,36 +25,6 @@ class UserAuthController extends Controller
         return view ('login.loginpage1', compact ('log')); //filename, var Not workuing
 
     }
-
-    public function CheckIt (Request $request) {
-
-        // return $request->Input();
-
-        $request->validate([
-
-            'email' => 'required|email',
-            'password' => 'required|min:5|max:12'
-
-        ]);
-
-        //If the users filled form is validated, then process the log in
-
-        $user = User::where('email','=', $request->email)->first();
-        if($user){
-            if(Hash::check($request->password, $user->password)) {
-
-                //if the password matches the user will redirect or prceed to the users profile
-                $request->session()->put('LoggedUser', $user->id);
-                return redirect ('profile');
-            
-            }else {
-                return back()->with('fail','Your password is incorrect!');
-            }
-        }else{
-            return back()->with('fail', 'Account NOT found!');
-        }
-    }
-
     
     public function RegisterIndex () {
 
@@ -86,6 +57,17 @@ class UserAuthController extends Controller
 
         $query = $user->save();
 
+        //Query Builder
+        //This code is the same as the codes above, use whatever you prefer to use
+        // $query = DB::table('users')
+        //         ->insert([
+        //             'firstname' => $request->firstname,
+        //             'lastname' => $request->lastname,
+        //             'email' => $request->email,
+        //             'password' => Hash::make($request->password),
+        //             'password_confirmation' => Hash::make($request->password_confirmation),
+        //         ]);
+
         if($query){
 
             return back()->with('Success','You are successfully registered!');
@@ -96,10 +78,57 @@ class UserAuthController extends Controller
         }
     }
 
+    public function CheckIt (Request $request) {
+
+        // return $request->Input();
+
+        $request->validate([
+
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:12'
+
+        ]);
+
+            //If the users filled form is validated, then process the log in
+
+        $user = User::where('email','=', $request->email)->first();
+
+            //Another way to write code
+            //Query Builder Way:
+            
+        // $user = DB::table('users')
+        //     ->where('email', $request->email)
+        //     ->first();
+
+        if($user){
+            
+            if(Hash::check($request->password, $user->password)) {
+
+            //if the password matches the user will redirect or prceed to the users profile
+
+                $request->session()->put('LoggedUser', $user->id);
+                return redirect ('profile');
+            
+            }else {
+                return back()->with('fail','Your password is incorrect!');
+            }
+        }else{
+            return back()->with('fail', 'Account NOT found!');
+        }
+    }
+
     public function UsersProfile () {
 
         if(session()->has('LoggedUser')){
+
             $user = User::where('id', "=", session('LoggedUser'))->first();
+            
+            //Query Builder Way
+
+            // $user = DB::table('users')
+            //         ->where('id', session('LoggedUser'))
+            //         ->first();
+
             $userdata = [
                 'LoggedUserInfo' => $user
             ];
@@ -112,7 +141,7 @@ class UserAuthController extends Controller
 
         if(session()->has('LoggedUser')) {
             session()->pull('LoggedUser');
-            return redirect ('register');
+            return redirect ('login');
         }
 
     }
