@@ -24,12 +24,13 @@
                                         @csrf
 
                                             <div class="results">
+
                                                 @if (session('Success'))
                                                         <div class="alert alert-success">
                                                             {{ session('Success') }}
                                                         </div>
                                                 @endif
-
+                                                
                                                 <!-- @if($errors->any())
                                                         <div class="form-group">
                                                             @foreach($errors->all() as $error)

@@ -22,14 +22,14 @@ class UserAuthController extends Controller
     public function LoginPageindex1 () {
 
         $log = Learning::all();
-        return view ('login.loginpage1', compact ('log')); //filename, var Not workuing
+        return view ('auth.loginpage1', compact ('log')); //filename, var Not workuing
 
     }
     
     public function RegisterIndex () {
 
         $reg = Learning::all();
-        return view ('login.register', compact ('reg')); //filename, var Not workuing
+        return view ('auth.register', compact ('reg')); //filename, var Not workuing
 
     }
 
@@ -74,7 +74,7 @@ class UserAuthController extends Controller
         }
         else {
 
-            return back()->with('Failed', 'There is problem in your registration. Registration went wrong.');
+            return back()->with('Failed', 'There is problem in your registration.');
         }
     }
 
@@ -104,16 +104,19 @@ class UserAuthController extends Controller
             
             if(Hash::check($request->password, $user->password)) {
 
-            //if the password matches the user will redirect or prceed to the users profile
+                //if the password matches the user will redirect or prceed to the users profile
 
                 $request->session()->put('LoggedUser', $user->id);
                 return redirect ('profile');
             
-            }else {
-                return back()->with('fail','Your password is incorrect!');
+            }else{
+
+                return back()->with('fail','The email password is incorrect');
             }
+
         }else{
-            return back()->with('fail', 'Account NOT found!');
+            
+            return back()->with('fail', 'The email address is not recognize');
         }
     }
 
@@ -130,6 +133,7 @@ class UserAuthController extends Controller
             //         ->first();
 
             $userdata = [
+                
                 'LoggedUserInfo' => $user
             ];
         }

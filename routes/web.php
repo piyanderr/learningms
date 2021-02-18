@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\UserAuthController;
-// use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,39 +37,29 @@ Route::get('/password', [UserAuthController::class, 'PassIndex']);
 
 //UserProfile
 Route::get('/profile', [UserAuthController::class, 'UsersProfile'])->middleware('isLogged');
-
+ 
 //LogOut Page
 Route::get('/logout', [UserAuthController::class, 'LogOutPageIndex']);
 
+// //My Dashboard 1
+// Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
 
+// //My Dashboard 2
+// Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
 
+// //My Dashboard 3
+// Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
 
-
-
-
-
-
-
-//My Dashboard 1
-Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
-
-//My Dashboard 2
-Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
-
-//My Dashboard 3
-Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
-
-//Tables
+// // Tables
 // Route::get('/tab', [LearningController::class, 'TableIndex']);
 
-//Charts
+// // Charts
 // Route::get('/chart', [LearningController::class, 'ChartsIndex']);
 
-//Auth?
+//Auth
 // Auth::route();
-
-//Route Middleware?
+//Route Middleware
 // Route::get('/player', 'PlayerController@index')->name('player')->middleware('player');
-// Route::get('/dashboardA', [AdminController::class, 'AdminHomepageindex'])->middleware('adminmid');
-// Route::get('/dashboardB', [StudentController::class, 'StudentHomepageindex'])->middleware('studmid');
-// Route::get('/dashboardC', [TeacherController::class, 'TeacherHomepageindex'])->middleware('teachmid');
+// Route::get('/dashboardA', 'LearningController@AdminHomepageindex')->middleware('admin');
+// Route::get('/dashboardB', 'LearninController@TeacherHomepageindex')->middleware('teacher');
+// Route::get('/dashboardC', 'LearningController@StudentHomepageindex')->middleware('student');
