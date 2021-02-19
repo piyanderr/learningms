@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\LoginController;
+use App\Models\Learning;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -22,33 +23,33 @@ Route::get('/', function () {
 });
 
 //LogInPage by me
-Route::get('/logsin', [UserAuthController::class, 'Loginpageindex']);
+Route::get('/logsin', [LearningController::class, 'Loginpageindex']);
 
 //LoginPage
-Route::get('/login', [UserAuthController::class, 'LoginPageindex1'])->middleware('isLoggedIn');
+Route::get('/login', [LearningController::class, 'LoginPageindex1'])->middleware('isLoggedIn');
 
 //RegisterPage
-Route::get('/register', [UserAuthController::class, 'RegisterIndex'])->middleware(('isLoggedIn'));
-Route::post('/create', [UserAuthController::class, 'UserCreate'])->name('createuser');
-Route::post('/checks', [UserAuthController::class, 'CheckIt'])->name('check.user');
+Route::get('/register', [LearningController::class, 'RegisterIndex'])->middleware(('isLoggedIn'));
+Route::post('/create', [LearningController::class, 'UserCreate'])->name('createuser');
+Route::post('/checks', [LearningController::class, 'CheckIt'])->name('check.user');
 
 //Password
-Route::get('/password', [UserAuthController::class, 'PassIndex']);
+Route::get('/password', [LearningController::class, 'PassIndex']);
 
 //UserProfile
-Route::get('/profile', [UserAuthController::class, 'UsersProfile'])->middleware('isLogged');
+Route::get('/profile', [LearningController::class, 'UsersProfile'])->middleware('isLogged');
  
 //LogOut Page
-Route::get('/logout', [UserAuthController::class, 'LogOutPageIndex']);
+Route::get('/logout', [LearningController::class, 'LogOutPageIndex']);
 
-// //My Dashboard 1
-// Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
+//My Dashboard 1
+Route::get('/home', [LearningController::class, 'AdminHomepageindex']);
 
-// //My Dashboard 2
-// Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
+//My Dashboard 2
+Route::get('/home2', [LearningController::class, 'StudentHomepageindex']);
 
-// //My Dashboard 3
-// Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
+//My Dashboard 3
+Route::get('/home3', [LearningController::class, 'TeacherHomepageindex']);
 
 // // Tables
 // Route::get('/tab', [LearningController::class, 'TableIndex']);
